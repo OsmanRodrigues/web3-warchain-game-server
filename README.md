@@ -1,1 +1,1 @@
-# web3-combate-game
+# web3-warchain-game-server
