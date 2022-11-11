@@ -14,7 +14,8 @@ jobs:
             - run:
                   echo "🔎 The name of your branch is ${{ github.ref }} and your
                   repository is ${{ github.repository }}."
-            - run: yarn install && yarn dev
+            - run: yarn install
+            - run: yarn dev
             - name: List files in the repository
               run: |
                   ls ${{ github.workspace }}
