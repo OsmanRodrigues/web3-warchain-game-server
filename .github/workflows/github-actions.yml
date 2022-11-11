@@ -1,6 +1,10 @@
 name: Web3 Warchain - Game Server (GitHub Actions)
 run-name: Pushed by ${{ github.actor }} 🚀
-on: [push]
+on:
+    push:
+        branches:
+            - main
+    pull_request:
 jobs:
     Simple-App-Running:
         runs-on: ubuntu-latest
@@ -14,6 +18,8 @@ jobs:
             - run:
                   echo "🔎 The name of your branch is ${{ github.ref }} and your
                   repository is ${{ github.repository }}."
+            - name: Checkout
+              uses: actions/checkout@v3
             - run: yarn install
             - run: ls
             - name: List files in the repository
