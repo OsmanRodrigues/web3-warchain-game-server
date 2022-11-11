@@ -1,0 +1,44 @@
+{
+    "name": "web3-warchain-game-server",
+    "version": "0.0.1",
+    "description": "Web3 WarChain - game server codebase",
+    "main": "./src/main.mts",
+    "scripts": {
+        "check-types": "yarn tsc --noEmit",
+        "lint": "yarn run eslint 'src/**/*.{ts,tsx}' && yarn check-types",
+        "run-dev-aliases": "nodemon -r tsconfig-paths/register ./src/main.ts",
+        "start": "node ./dist/main.js",
+        "dev": "yarn lint && yarn run-dev-aliases",
+        "build": "rollup --config",
+        "test": "yarn start",
+        "prepare": "husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OsmanRodrigues/web3-warchain-game-server.git"
+    },
+    "keywords": [
+        "web3",
+        "game"
+    ],
+    "author": "OsmanRodrigues",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/OsmanRodrigues/web3-warchain-game-server/issues"
+    },
+    "homepage": "https://github.com/OsmanRodrigues/web3-warchain-game-server#readme",
+    "devDependencies": {
+        "@rollup/plugin-terser": "0.1.0",
+        "@rollup/plugin-typescript": "9.0.2",
+        "@typescript-eslint/eslint-plugin": "5.42.1",
+        "@typescript-eslint/parser": "5.42.1",
+        "eslint": "8.27.0",
+        "husky": "8.0.2",
+        "nodemon": "2.0.20",
+        "prettier": "2.7.1",
+        "rollup": "3.2.5",
+        "ts-node": "10.9.1",
+        "tsconfig-paths": "4.1.0",
+        "typescript": "4.8.4"
+    }
+}

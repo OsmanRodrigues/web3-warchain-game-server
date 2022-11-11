@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "@adapters": ["adapters"],
+            "@adapters/*": ["adapters/*"],
+            "@entities": ["entities"],
+            "@entities/*": ["entities/*"],
+            "@frameworks": ["frameworks"],
+            "@frameworks/*": ["frameworks/*"],
+            "@domain": ["domain"],
+            "@domain/*": ["domain/*"],
+            "@utils": ["utils"],
+            "@utils/*": ["utils/*"]
+        },
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "removeComments": true,
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictPropertyInitialization": true,
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
