@@ -20,8 +20,10 @@ jobs:
                   repository is ${{ github.repository }}."
             - name: Checkout
               uses: actions/checkout@v3
-            - run: yarn install
-            - run: ls
+            - name: Installing packages
+              run: yarn install
+            - name: Running development environment
+              run: yarn dev
             - name: List files in the repository
               run: |
                   ls ${{ github.workspace }}
