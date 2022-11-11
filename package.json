@@ -10,7 +10,8 @@
         "start": "node ./dist/main.js",
         "dev": "yarn lint && yarn run-dev-aliases",
         "build": "rollup --config",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "yarn start",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -32,12 +33,12 @@
         "@typescript-eslint/eslint-plugin": "5.42.1",
         "@typescript-eslint/parser": "5.42.1",
         "eslint": "8.27.0",
+        "husky": "8.0.2",
         "nodemon": "2.0.20",
         "prettier": "2.7.1",
         "rollup": "3.2.5",
         "ts-node": "10.9.1",
         "tsconfig-paths": "4.1.0",
         "typescript": "4.8.4"
-    },
-    "dependencies": {}
+    }
 }
