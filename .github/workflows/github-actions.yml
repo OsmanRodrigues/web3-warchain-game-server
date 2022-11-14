@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - main
+    pull_request:
 jobs:
     Simple-App-Running:
         runs-on: ubuntu-latest
