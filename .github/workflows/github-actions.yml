@@ -6,7 +6,7 @@ on:
             - main
     pull_request:
 jobs:
-    Simple-App-Running:
+    App-Testing:
         runs-on: ubuntu-latest
         steps:
             - run:
@@ -22,11 +22,5 @@ jobs:
               uses: actions/checkout@v3
             - name: Installing packages
               run: yarn install
-            - name: Building App
-              run: yarn build
-            - name: Running App
-              run: yarn start
-            - name: List files in the repository
-              run: |
-                  ls ${{ github.workspace }}
-            - run: echo "🍏 This job's status is ${{ job.status }}."
+            - name: Testing App
+              run: yarn test
