@@ -6,7 +6,7 @@ on:
             - main
     pull_request:
 jobs:
-    Simple-App-Running:
+    App-Testing:
         runs-on: ubuntu-latest
         steps:
             - run:
