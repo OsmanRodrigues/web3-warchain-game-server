@@ -21,3 +21,5 @@ export class PlayerRepository {
         return this.playerDB
     }
 }
+
+export const playerRepository = new PlayerRepository()

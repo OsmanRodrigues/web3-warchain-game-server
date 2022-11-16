@@ -1,7 +1,7 @@
-import {logger} from '@utils/other'
+import {serverHandler} from 'external/web/server'
 
 function main() {
-    logger('hello world ok')
+    serverHandler()
 }
 
 main()
