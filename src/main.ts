@@ -1,4 +1,4 @@
-import {serverHandler} from 'external/web/server'
+import {serverHandler} from '@external/web/server'
 
 function main() {
     serverHandler()

@@ -1,5 +1,5 @@
 import {PlayerDTO} from '@adapters/types/player.types'
-import {playerRepository} from 'external/db/player.repository'
+import {playerRepository} from '@external/db/player.repository'
 import {PlayerFactory} from './player.factory'
 
 export class PlayerUseCase {

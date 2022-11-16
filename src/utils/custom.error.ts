@@ -1,4 +1,4 @@
-import {ErrorResult} from 'external/web/graphql/schemas/resolvers/types/resolver.types'
+import {ErrorResult} from '@external/web/graphql/schemas/resolvers/types/resolver.types'
 
 export class CustomError extends Error implements ErrorResult {
     error = ''
