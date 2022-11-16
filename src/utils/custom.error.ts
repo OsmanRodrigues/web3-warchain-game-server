@@ -1,6 +1,6 @@
-import {ErroResult} from 'external/web/graphql/schemas/resolvers/types/resolver.types'
+import {ErrorResult} from 'external/web/graphql/schemas/resolvers/types/resolver.types'
 
-export class CustomError extends Error implements ErroResult {
+export class CustomError extends Error implements ErrorResult {
     error = ''
     code: number | null = null
     constructor(args: {error: string; code?: number}) {

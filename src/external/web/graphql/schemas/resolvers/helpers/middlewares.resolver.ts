@@ -1,8 +1,8 @@
-import {ErroResult, SuccessResult} from '../types/resolver.types'
+import {ErrorResult, SuccessResult} from '../types/resolver.types'
 
 export function resolverMutationMiddleware(
     resolver: () => SuccessResult,
-): SuccessResult | ErroResult {
+): SuccessResult | ErrorResult {
     try {
         return resolver()
     } catch (err: any) {
