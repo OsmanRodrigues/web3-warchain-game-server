@@ -1,5 +1,11 @@
-import {PlayerUseCase} from 'use-cases/player.use-case'
+import {PlayerDTO} from '../types/player.types'
+import {playerUseCase} from 'use-cases/player.use-case'
 
 export class PlayerController {
-    constructor(private useCase: PlayerUseCase, public route: () => void) {}
+    constructor(private useCase: typeof playerUseCase) {}
+    public createPlayer(player: PlayerDTO) {
+        this.useCase.createPlayer(player)
+    }
 }
+
+export const playerController = new PlayerController(playerUseCase)

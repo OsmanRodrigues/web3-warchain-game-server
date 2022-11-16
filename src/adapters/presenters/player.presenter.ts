@@ -1,7 +1,7 @@
-import {playerRepository, PlayerRepository} from 'external/db/player.repository'
+import {playerRepository} from 'external/db/player.repository'
 
 class PlayerPresenter {
-    constructor(private repository: PlayerRepository) {}
+    constructor(private repository: typeof playerRepository) {}
     /**
      * Get Players
      */

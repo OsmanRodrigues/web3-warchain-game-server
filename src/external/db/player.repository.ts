@@ -1,4 +1,5 @@
-import {PlayerDTO} from '@adapters/controllers/player.controller.types'
+import {PlayerDTO, PlayerViewModel} from '@adapters/types/player.types'
+import {PlayerNotFindError} from './types/errors.player.repository'
 
 export class PlayerRepository {
     private playerDB: PlayerDTO[] = []
@@ -13,8 +14,11 @@ export class PlayerRepository {
     /**
      * Find Player
      */
-    public findPlayer(username: string) {
-        return this.playerDB.find(player => player.username === username)
+    public findPlayer(username: string): PlayerViewModel | PlayerNotFindError {
+        const dbResult = this.playerDB.find(
+            player => player.username === username,
+        )
+        return dbResult ?? {error: 'Not find.', status: 404}
     }
 
     public get players() {
