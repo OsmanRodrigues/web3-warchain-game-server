@@ -1,12 +1,23 @@
 import {expect} from 'chai'
-import {genFakeUser} from './helpers/player.specs.helpers'
-import {playerUseCase} from './player.use-case'
+import {
+    genFakeUser,
+    genRepository,
+    genUseCase,
+} from './helpers/player.specs.helpers'
+import {after} from 'mocha'
+
+const playerRepository = genRepository()
+const playerUseCase = genUseCase(playerRepository)
+
+after(() => {
+    playerRepository.resetDb()
+})
 
 describe('# Player Use Cases', () => {
     context('~ Create', () => {
         it('Should create a player', () => {
             const fakeUser = genFakeUser()
-            const result = playerUseCase.createPlayer(fakeUser)
+            const result = playerUseCase!.createPlayer(fakeUser)
             expect(result).to.have.a.property('username').that.is.a('string')
             expect(result.username).deep.equal(fakeUser.username)
         })
@@ -15,16 +26,16 @@ describe('# Player Use Cases', () => {
                 password: '',
                 username: '',
             }
-            expect(() => playerUseCase.createPlayer(fakeUser)).to.throw(
+            expect(() => playerUseCase!.createPlayer(fakeUser)).to.throw(
                 /must be provided/,
             )
         })
     })
     context('~ Auth', () => {
         const fakeUser = genFakeUser()
-        playerUseCase.createPlayer(fakeUser)
+        playerUseCase!.createPlayer(fakeUser)
         it('Should return "valid credentials" info', () => {
-            const result = playerUseCase.authPlayer(fakeUser)
+            const result = playerUseCase!.authPlayer(fakeUser)
             expect(result)
                 .to.have.a.property('username')
                 .that.is.a('string')
@@ -32,7 +43,7 @@ describe('# Player Use Cases', () => {
         })
         it('Should throw "invalid password" error', () => {
             expect(() =>
-                playerUseCase.authPlayer({
+                playerUseCase!.authPlayer({
                     ...fakeUser,
                     password: 'invalid_pwd',
                 }),
@@ -40,7 +51,7 @@ describe('# Player Use Cases', () => {
         })
         it('Should throw "not found" error', () => {
             expect(() =>
-                playerUseCase.authPlayer({
+                playerUseCase!.authPlayer({
                     ...fakeUser,
                     username: 'invalid_user',
                 }),
@@ -49,16 +60,16 @@ describe('# Player Use Cases', () => {
     })
     context('~ Remove', () => {
         const fakeUser = genFakeUser()
-        playerUseCase.createPlayer(fakeUser)
+        playerUseCase!.createPlayer(fakeUser)
         it('Should remove a player', () => {
-            const result = playerUseCase.removePlayer(fakeUser.username)
+            const result = playerUseCase!.removePlayer(fakeUser.username)
             expect(result)
                 .to.have.a.property('info')
                 .that.is.a('string')
                 .and.deep.equals('Ok')
         })
         it('Should throw "not found" error', () => {
-            expect(() => playerUseCase.removePlayer('invalid_user')).to.throw(
+            expect(() => playerUseCase!.removePlayer('invalid_user')).to.throw(
                 /not found/,
             )
         })

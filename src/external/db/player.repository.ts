@@ -41,6 +41,10 @@ export class PlayerRepository {
     public get players() {
         return this.playerDB
     }
+    /* For tests purposes */
+    public resetDb() {
+        this.playerDB = []
+    }
 }
 
 export const playerRepository = new PlayerRepository()
