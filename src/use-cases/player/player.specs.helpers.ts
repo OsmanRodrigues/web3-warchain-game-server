@@ -1,8 +1,8 @@
 import {PlayerDTO} from '@adapters/types/player.types'
 import {PlayerRepository} from '@external/db/player.repository'
 import {faker} from '@faker-js/faker'
-import {PlayerUseCase} from '../player.use-case'
-import {AuthStrategy} from './auth.strategy'
+import {PlayerUseCase} from './player.use-case'
+import {AuthStrategy} from '../helpers/auth.strategy'
 
 export const genFakeUser = (): PlayerDTO => ({
     password: faker.internet.password(),

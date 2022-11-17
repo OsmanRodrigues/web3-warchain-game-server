@@ -1,9 +1,5 @@
 import {expect} from 'chai'
-import {
-    genFakeUser,
-    genRepository,
-    genUseCase,
-} from './helpers/player.specs.helpers'
+import {genFakeUser, genRepository, genUseCase} from './player.specs.helpers'
 import {after} from 'mocha'
 
 const playerRepository = genRepository()

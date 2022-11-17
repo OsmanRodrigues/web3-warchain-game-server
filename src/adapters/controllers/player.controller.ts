@@ -1,5 +1,5 @@
 import {PlayerDTO} from '../types/player.types'
-import {playerUseCase} from '@use-cases/player.use-case'
+import {playerUseCase} from '@use-cases/player/player.use-case'
 
 export class PlayerController {
     constructor(private useCase: typeof playerUseCase) {}

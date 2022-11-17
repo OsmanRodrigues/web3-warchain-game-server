@@ -6,7 +6,7 @@ import {
 import {SuccessResult} from '@external/web/graphql/schemas/resolvers/types/resolver.types'
 import {CustomError} from '@utils/custom.error'
 import {HttpErrorCode} from '@utils/http-codes'
-import {authStrategy} from './helpers/auth.strategy'
+import {authStrategy} from '../helpers/auth.strategy'
 import {PlayerFactory} from './player.factory'
 
 export class PlayerUseCase {
