@@ -1,6 +1,6 @@
 export const union = {
     MutationResult: {
-        __resolveType(obj: any) {
+        __resolveType(obj: Record<string, string>) {
             // Only Author has a name field
             if (obj.info) {
                 return 'Success'
