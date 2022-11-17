@@ -19,7 +19,8 @@ export function checkDTO<DTO = Record<string, string>>(
 
     if (errorMessages.length)
         throw new CustomError({
-            error: errorMessages.join(' \n '),
+            error: 'Bad Request',
+            message: errorMessages.join(' \n '),
             code: 400,
         })
 }

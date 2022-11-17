@@ -11,6 +11,7 @@
         "dev": "yarn lint && yarn run-dev-aliases",
         "build": "rollup --config",
         "test": "yarn lint && yarn mocha",
+        "test-watch": "yarn lint && yarn mocha --watch --watch-files './src/**/*.spec.ts'",
         "prepare": "husky install"
     },
     "repository": {

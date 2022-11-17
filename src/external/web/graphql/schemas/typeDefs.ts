@@ -14,5 +14,7 @@ export const typeDefs = `#graphql
   }
   type Mutation {
     createPlayer(username: String!, password: String!): MutationResult!
+    authPlayer(username: String!, password: String!): MutationResult!
+    removePlayer(username: String!): MutationResult!
   }
 `

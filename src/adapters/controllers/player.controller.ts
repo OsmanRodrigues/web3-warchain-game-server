@@ -6,6 +6,12 @@ export class PlayerController {
     public createPlayer(player: PlayerDTO) {
         return this.useCase.createPlayer(player)
     }
+    public authPlayer(player: PlayerDTO) {
+        return this.useCase.authPlayer(player)
+    }
+    public removePlayer(username: string) {
+        return this.useCase.removePlayer(username)
+    }
 }
 
 export const playerController = new PlayerController(playerUseCase)
