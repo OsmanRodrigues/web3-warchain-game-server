@@ -10,7 +10,7 @@ export const playerQuery = {
 export const playerMutation = {
     createPlayer: (_: any, player: PlayerDTO) =>
         resolverMutationMiddleware(() => {
-            playerController.createPlayer(player)
-            return {info: `Player '${player.username}' successfully created!`}
+            const result = playerController.createPlayer(player)
+            return {info: `Player '${result.username}' successfully created!`}
         }),
 }

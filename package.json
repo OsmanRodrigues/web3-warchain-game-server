@@ -28,6 +28,7 @@
     },
     "homepage": "https://github.com/OsmanRodrigues/web3-warchain-game-server#readme",
     "devDependencies": {
+        "@faker-js/faker": "7.6.0",
         "@rollup/plugin-terser": "0.1.0",
         "@rollup/plugin-typescript": "9.0.2",
         "@types/chai": "4.3.4",

@@ -4,7 +4,7 @@ import {playerUseCase} from '@use-cases/player.use-case'
 export class PlayerController {
     constructor(private useCase: typeof playerUseCase) {}
     public createPlayer(player: PlayerDTO) {
-        this.useCase.createPlayer(player)
+        return this.useCase.createPlayer(player)
     }
 }
 
