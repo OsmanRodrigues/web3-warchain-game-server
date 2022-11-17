@@ -47,4 +47,20 @@ describe('# Player Use Cases', () => {
             ).to.throw(/not found/)
         })
     })
+    context('~ Remove', () => {
+        const fakeUser = genFakeUser()
+        playerUseCase.createPlayer(fakeUser)
+        it('Should remove a player', () => {
+            const result = playerUseCase.removePlayer(fakeUser.username)
+            expect(result)
+                .to.have.a.property('info')
+                .that.is.a('string')
+                .and.deep.equals('Ok')
+        })
+        it('Should throw "not found" error', () => {
+            expect(() => playerUseCase.removePlayer('invalid_user')).to.throw(
+                /not found/,
+            )
+        })
+    })
 })

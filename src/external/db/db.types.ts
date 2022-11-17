@@ -9,8 +9,8 @@ interface PlayerRepositoryData extends PlayerViewModel {
 }
 
 export interface PlayerRepositorySuccess extends SuccessResult {
-    data: PlayerRepositoryData
+    data?: PlayerRepositoryData
 }
 export interface PlayerRepositoryError extends ErrorResult {
-    data: PlayerRepositoryData
+    data?: PlayerRepositoryData
 }
