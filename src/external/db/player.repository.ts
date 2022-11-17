@@ -1,5 +1,8 @@
-import {PlayerDTO, PlayerViewModel} from '@adapters/types/player.types'
-import {ErrorResult} from '../web/graphql/schemas/resolvers/types/resolver.types'
+import {PlayerDTO} from '@adapters/types/player.types'
+import {HttpErrorCode, HttpSuccessCode} from '@utils/http-codes'
+import {PlayerRepositorySuccess, PlayerRepositoryError} from './db.types'
+
+type RepositoryMethodReturn = PlayerRepositorySuccess & PlayerRepositoryError
 
 export class PlayerRepository {
     private playerDB: PlayerDTO[] = []
@@ -14,11 +17,17 @@ export class PlayerRepository {
     /**
      * Find Player
      */
-    public findPlayer(username: string): PlayerViewModel | ErrorResult {
+    public findPlayer(username: string): RepositoryMethodReturn {
         const dbResult = this.playerDB.find(
             player => player.username === username,
         )
-        return dbResult ?? {error: 'Not find.', code: 404}
+        if (dbResult)
+            return {info: 'Found', data: dbResult, code: HttpSuccessCode.Found}
+        return {
+            error: 'Not Found',
+            code: HttpErrorCode['Not Found'],
+            data: {username},
+        }
     }
 
     public get players() {
